@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import id.co.asyst.yeni.movieyeni.R;
 
@@ -60,8 +61,11 @@ public class SearchFragment extends BottomSheetDialogFragment implements View.On
                 String search = searchEt.getText().toString();
                 if (!TextUtils.isEmpty(search)) {
                     listener.onSubmitButtonListener(search);
+                    dismiss();
+                } else {
+                    Toast.makeText(getActivity(), "Harus diisi", Toast.LENGTH_SHORT).show();
                 }
-                dismiss();
+
                 break;
         }
     }
